@@ -49,3 +49,5 @@ jobs:
         with:
           pytest-xml-coverage-path: ./coverage.xml
           junitxml-path: ./junit.xml
+          xml-skip-covered: true
+          hide-report: true
