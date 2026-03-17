@@ -193,6 +193,8 @@ class DBEntry:
         """Select which DBEntry implementation to use based on the URI."""
         if uri and uri.endswith(".nc") and not uri.startswith("imas:"):
             from imas.backends.netcdf.db_entry_nc import NCDBEntryImpl as impl
+        elif uri and uri.startswith("imas:parquet"):
+            from imas.backends.parquet.db_entry_pq import PQDBEntryImpl as impl
         else:
             from imas.backends.imas_core.db_entry_al import ALDBEntryImpl as impl
         return impl
